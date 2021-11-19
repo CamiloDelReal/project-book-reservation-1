@@ -1,0 +1,10 @@
+spring:
+  security:
+    user:
+      name: root
+      password: root
+    token:
+      type: Bearer
+      key: qwerty123456
+      validity: 1800000
+

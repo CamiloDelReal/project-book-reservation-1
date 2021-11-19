@@ -1,0 +1,32 @@
+server:
+  port: 10100
+
+spring:
+  application:
+    name: configuration-service
+
+  profiles:
+    active: native
+  cloud:
+    bus:
+      enabled: true
+      refresh:
+        enabled: true
+      env:
+        enabled: true
+    config:
+      server:
+        native:
+          search-locations: /media/darklink/Data/workspace/project-book-reservation-1/configurations
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: rabbit
+    password: rabbit
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
