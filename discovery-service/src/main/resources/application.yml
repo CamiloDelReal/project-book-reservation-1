@@ -1,0 +1,41 @@
+server:
+  port: 10200
+
+spring:
+  application:
+    name: discovery-service
+
+  profiles:
+    active: dev
+
+  config:
+    import: optional:configserver:http://localhost:10100
+
+  cloud:
+    bus:
+      enabled: true
+      refresh:
+        enabled: true
+      env:
+        enabled: true
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: rabbit
+    password: rabbit
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://root:root@localhost:10200/eureka
+    registerWithEureka: false
+    fetchRegistry: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
